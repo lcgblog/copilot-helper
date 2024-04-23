@@ -13,6 +13,6 @@ def execute():
     )
 
     api_url = 'https://api.example.com/data'
-    data = client.call_api(api_url)
+    data = client.call_api(api_url, verify=False)
     print(data)
     print(f"End testing: {module_name}")

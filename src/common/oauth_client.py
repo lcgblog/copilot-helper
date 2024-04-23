@@ -22,9 +22,9 @@ class OAuth2Client:
 
         return self.access_token
 
-    def call_api(self, api_url):
+    def call_api(self, api_url, verify_ssl=True):
         headers = {'Authorization': f'Bearer {self.get_access_token()}'}
-        response = requests.get(api_url, headers=headers)
+        response = requests.get(api_url, headers=headers, verify=verify_ssl)
 
         if response.status_code == 200:
             return response.json()
