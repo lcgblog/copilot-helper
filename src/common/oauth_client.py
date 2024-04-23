@@ -1,6 +1,8 @@
 import requests
 from requests.auth import HTTPBasicAuth
 
+CERTIFICATE_PATH = '/path/to/certificate.pem'
+
 class OAuth2Client:
     def __init__(self, client_id, client_secret, token_url):
         self.client_id = client_id
