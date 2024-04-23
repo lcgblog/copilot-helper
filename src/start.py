@@ -1,6 +1,7 @@
 import sys
 import os
 import importlib
+import argparse
 
 def execute_task(task):
     # Define the directory where tasks are located
@@ -24,11 +25,17 @@ def execute_task(task):
             print(f'Error executing {task}: {e}')
 
 if __name__ == "__main__":
-    # Get the task from command line arguments
-    if len(sys.argv) < 2:
-        print("Please provide a task name as a command line argument.")
-        sys.exit(1)
-    task = sys.argv[1]
+    # Create an argument parser
+    parser = argparse.ArgumentParser(description='Execute a task.')
+
+    # Add an argument for the task name
+    parser.add_argument('task', help='Name of the task to execute')
+
+    # Parse the command line arguments
+    args = parser.parse_args()
+
+    # Get the task from the parsed arguments
+    task = args.task
 
     # Call the execute_task function with the specified task
     execute_task(task)
